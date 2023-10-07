@@ -10,7 +10,7 @@ namespace Assignment1.Models
         [Required]
         public string Style { get; set; }
         [Required]
-        public Boolean Completed { get; set; }
+        public Boolean? Completed { get; set; }
         [Required]
         public int GymId { get; set; }
         [Required]

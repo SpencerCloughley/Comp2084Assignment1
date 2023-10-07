@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Assignment1.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Assignment1.Data
@@ -9,5 +10,7 @@ namespace Assignment1.Data
             : base(options)
         {
         }
+        public DbSet<Climb> Climbs { get; set; }
+        public DbSet<Gym> Gyms { get; set; }
     }
 }

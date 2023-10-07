@@ -12,6 +12,6 @@ namespace Assignment1.Models
         [Required]
         [MaxLength(50)]
         public string City { get; set; }
-        public List<Climb> Climbs { get; set; }
+        public List<Climb>? Climbs { get; set; }
     }
 }
