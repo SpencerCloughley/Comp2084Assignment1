@@ -23,16 +23,28 @@
             @Html.DisplayFor(model => model.Style)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Completed)
+            @Html.DisplayNameFor(model => model.Grade)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Completed)
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CompletionDate)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Gym)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gym.City)
+            @Html.DisplayFor(model => model.Gym.Name)
         </dd>
     </dl>
 </div>

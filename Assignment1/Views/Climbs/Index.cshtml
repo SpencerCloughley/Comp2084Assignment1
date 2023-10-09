@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Assignment1.Models.Climb>
 
 @{
-    ViewData["Title"] = "Climbing Routes";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Current Projects</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -19,7 +19,13 @@
                 @Html.DisplayNameFor(model => model.Style)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Completed)
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompletionDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Gym)
@@ -37,10 +43,16 @@
                 @Html.DisplayFor(modelItem => item.Style)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Completed)
+                @Html.DisplayFor(modelItem => item.Grade)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gym.City)
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gym.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ClimbId">Edit</a> |

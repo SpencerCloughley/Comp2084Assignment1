@@ -48,7 +48,7 @@ namespace Assignment1.Controllers
         // GET: Climbs/Create
         public IActionResult Create()
         {
-            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "City");
+            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "Name");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClimbId,Colour,Style,Completed,GymId")] Climb climb)
+        public async Task<IActionResult> Create([Bind("ClimbId,Colour,Style,Grade,StartDate,CompletionDate,GymId")] Climb climb)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Assignment1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "City", climb.GymId);
+            ViewData["GymId"] = new SelectList(_context.Gyms.OrderBy(c=>c.Name), "GymId", "Name", climb.GymId);
             return View(climb);
         }
 
@@ -82,7 +82,7 @@ namespace Assignment1.Controllers
             {
                 return NotFound();
             }
-            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "City", climb.GymId);
+            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "Name", climb.GymId);
             return View(climb);
         }
 
@@ -91,7 +91,7 @@ namespace Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClimbId,Colour,Style,Completed,GymId")] Climb climb)
+        public async Task<IActionResult> Edit(int id, [Bind("ClimbId,Colour,Style,Grade,StartDate,CompletionDate,GymId")] Climb climb)
         {
             if (id != climb.ClimbId)
             {
@@ -118,7 +118,7 @@ namespace Assignment1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "City", climb.GymId);
+            ViewData["GymId"] = new SelectList(_context.Gyms, "GymId", "Name", climb.GymId);
             return View(climb);
         }
 

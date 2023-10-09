@@ -12,6 +12,9 @@ namespace Assignment1.Models
         [Required]
         [MaxLength(50)]
         public string City { get; set; }
+        [Required]
+        [Display(Name = "Grading Style")]
+        public string GradingStyle { get; set; }
         public List<Climb>? Climbs { get; set; }
     }
 }

@@ -10,10 +10,20 @@ namespace Assignment1.Models
         [Required]
         public string Style { get; set; }
         [Required]
-        public Boolean? Completed { get; set; }
+        public int Grade { get; set; }
+        
         [Required]
+        [Display(Name = "Start Date")]
+        public DateTime StartDate { get; set; }
+        [Required]
+        [Display(Name = "Completion Date")]
+        public DateTime? CompletionDate { get; set; }
+        
+        [Required]
+        [Display(Name = "Gym Name")]
         public int GymId { get; set; }
-        [Required]
-        public Gym Gym { get; set; }
+
+        
+        public Gym? Gym { get; set; }
     }
 }

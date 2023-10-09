@@ -56,7 +56,7 @@ namespace Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GymId,Name,City")] Gym gym)
+        public async Task<IActionResult> Create([Bind("GymId,Name,City,GradingStyle")] Gym gym)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GymId,Name,City")] Gym gym)
+        public async Task<IActionResult> Edit(int id, [Bind("GymId,Name,City,GradingStyle")] Gym gym)
         {
             if (id != gym.GymId)
             {
