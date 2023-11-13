@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment1.Data;
 using Assignment1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment1.Controllers
 {
+    [Authorize]
     public class GymsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +20,7 @@ namespace Assignment1.Controllers
         {
             _context = context;
         }
-
+        [AllowAnonymous]
         // GET: Gyms
         public async Task<IActionResult> Index()
         {
@@ -26,7 +28,7 @@ namespace Assignment1.Controllers
                           View(await _context.Gyms.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Gyms'  is null.");
         }
-
+        [AllowAnonymous]
         // GET: Gyms/Details/5
         public async Task<IActionResult> Details(int? id)
         {

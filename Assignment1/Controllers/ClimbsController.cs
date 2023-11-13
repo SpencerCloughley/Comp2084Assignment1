@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Assignment1.Data;
 using Assignment1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment1.Controllers
 {
+    [Authorize]
     public class ClimbsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +20,7 @@ namespace Assignment1.Controllers
         {
             _context = context;
         }
-
+        [AllowAnonymous]
         // GET: Climbs
         public async Task<IActionResult> Index()
         {
@@ -26,6 +28,7 @@ namespace Assignment1.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        [AllowAnonymous]
         // GET: Climbs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
