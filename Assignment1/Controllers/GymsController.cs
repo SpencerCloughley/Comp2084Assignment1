@@ -125,17 +125,17 @@ namespace Assignment1.Controllers
         {
             if (id == null || _context.Gyms == null)
             {
-                return NotFound();
+                return View("Error");
             }
 
             var gym = await _context.Gyms
                 .FirstOrDefaultAsync(m => m.GymId == id);
             if (gym == null)
             {
-                return NotFound();
+                return View("Error");
             }
 
-            return View(gym);
+            return View("Delete",gym);
         }
 
         // POST: Gyms/Delete/5

@@ -12,10 +12,8 @@ namespace Assignment1.Models
         [Required]
         public int Grade { get; set; }
         
-        [Required]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
-        [Required]
         [Display(Name = "Completion Date")]
         public DateTime? CompletionDate { get; set; }
         

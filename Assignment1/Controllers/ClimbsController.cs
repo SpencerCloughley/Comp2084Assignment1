@@ -125,6 +125,7 @@ namespace Assignment1.Controllers
             return View(climb);
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////
         // GET: Climbs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
