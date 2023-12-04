@@ -89,6 +89,11 @@ namespace GymTesting
 
             CollectionAssert.AreEqual(model, _testContext.Gyms.ToList());
         }
-        
+        [TestMethod]
+        public void DeleteConfirmedValidIdReturnView()
+        {
+            var result = (RedirectToActionResult)controller.DeleteConfirmed(1).Result;
+            Assert.AreEqual("Index", result.ActionName);
+        }
     }
 }
