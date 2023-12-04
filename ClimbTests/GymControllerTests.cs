@@ -19,8 +19,8 @@ namespace GymTesting
             .UseInMemoryDatabase(Guid.NewGuid().ToString())
             .Options;
             _context = new ApplicationDbContext(options);
-            
-            var gym = new Gym { GymId = 1, Name = "Alt Rock", City = "Barrie",  GradingStyle = "Vermin" };
+
+            var gym = new Gym { GymId = 1, Name = "Alt Rock", City = "Barrie", GradingStyle = "Vermin" };
             _context.Gyms.Add(gym);
 
             gym = new Gym { GymId = 2, Name = "Gravity", City = "Hamilton", GradingStyle = "Vermin" };
@@ -65,5 +65,30 @@ namespace GymTesting
 
             Assert.AreEqual(_context.Gyms.Find(1), model);
         }
+
+        [TestMethod]
+        public void DeleteConfirmedNullGym()
+        {
+            ApplicationDbContext _testContext = _context;
+            var result = controller.DeleteConfirmed(0).Result;
+            var indexCall = (ViewResult)controller.Index().Result;
+            var model = (List<Gym>)indexCall.Model;
+
+            CollectionAssert.AreEqual(model, _testContext.Gyms.ToList());
+        }
+
+        [TestMethod]
+        public void DeleteConfirmedValidId()
+        {
+            ApplicationDbContext _testContext = _context;
+            var result = controller.DeleteConfirmed(1).Result;
+            var indexCall = (ViewResult)controller.Index().Result;
+            var model = (List<Gym>)indexCall.Model;
+            var gym = new Gym { GymId = 1, Name = "Alt Rock", City = "Barrie", GradingStyle = "Vermin" };
+            _testContext.Gyms.Remove(gym);
+
+            CollectionAssert.AreEqual(model, _testContext.Gyms.ToList());
+        }
+        
     }
 }
